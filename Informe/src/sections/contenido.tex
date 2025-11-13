@@ -1,0 +1,82 @@
+\section{Contenido del informe}
+Este es un ejemplo de contenido de un informe parcial para el proyecto \textbf{LoopWeb}
+Inicialmente es importante saber lo básico: para usar negrita usamos el comando \textbf{textbf} y para cursiva usamos \textit{textit}, para incluir código en línea usamos \texttt{texttt}.
+
+\subsection{Numeración} % Esto sería un subtítulo
+A continuación se hace un ejemplo de numeración:
+
+\begin{enumerate}
+    \item En una enumeración uno puede dejar claro que los elementos se suceden unos detrás de los otros.
+    \item Este sería el segundo elemento
+    \item Este sería el tercer elemento
+    \item Este sería el cuarto elemento qut tiene dos elementos adicionales
+    \begin{enumerate}
+        \item Este sería el primer elemento de la enumeración anidada
+        \item Este sería el segundo elemento de la enumeración anidada
+    \end{enumerate}
+    \item Este sería el quinto elemento
+\end{enumerate}
+
+\subsection{Itemización}
+Lo anterior también se puede hacer con puntos en lugar de numeración:
+
+\begin{itemize}
+    \item En una itemización uno puede listar elementos sin necesidad de un orden.
+    \item Este sería el segundo elemento
+    \item Este sería el tercer elemento
+    \item Este sería el cuarto elemento qut tiene dos elementos adicionales que si son numerados
+    \begin{enumerate}
+        \item Este sería el primer elemento de la enumeración anidada
+        \item Este sería el segundo elemento de la enumeración anidada
+    \end{enumerate}
+    \item Este sería el quinto elemento
+\end{itemize}
+
+\subsection{Código fuente}
+Otra cosa que podrían necesitar es la inclusión de código fuente como el mostrado en el Listing \ref{lst:codigo} (note que en el PDF la numeración es automática gracias a los\texttt{labels}):
+
+\begin{lstlisting}[style=CodeStyle, language=C, caption={Este es un codigo fuente}, label={lst:codigo}]
+#include <stdio.h>
+
+int main() {
+    printf("Hola mundo!");
+    return 0;
+}
+\end{lstlisting}
+
+\subsection{Imagen}
+Otra cosa que puede desear hacer es incluir imágenes lo que se hace como se muestra en la figura \ref{fig:imagen}.
+\begin{figure}[!ht]
+    \centering % Para que aparezca centrada
+    \includegraphics[width=0.5\textwidth]{./src/images/umag.png} % Esta linea incluye la imagen
+    \caption{Esta es una imagen} % Este es el mensaje que acompaña la imagen
+    \label{fig:imagen} % Esta es la referencia a la imagen
+\end{figure}
+
+\subsection{Referencias bibliográficas}
+Lo primero necesario para incluir una referencia bibliográfica es agregar una entrada en el archivo \texttt{referencias.bib} con el formato \texttt{key = value}, a continuación se muestra un ejemplo de entrada:
+
+\lstinputlisting[style=codestyle, caption={Entrada bibliográfica}, label={lst:referencias}]{./referencias.bib}  % Esta es una forma de incluir un archivo
+
+Las partes de la entrada que se muestran en el listing \ref{lst:referencias} son las siguientes:
+\begin{itemize}
+    \item \textbf{title}: Título de la referencia
+    \item \textbf{author}: Autor(es) de la referencia (Si son muchos separarlos con la palabra \texttt{and})
+    \item \textbf{url}: URL de la referencia
+    \item \textbf{year}: Año de publicación
+    \item \textbf{month}: Mes de publicación
+    \item \textbf{day}: Día de publicación
+    \item \textbf{urldate}: Fecha en que visitó la referencia
+\end{itemize}
+Estos campos corresponden a una referencia de tipo \texttt{@online} que es para citar una fuente en línea, si va a citar un libro u otra fuente que no sea online se usaría \texttt{@book} o \texttt{@article} con los campos que corresponda.
+
+Una vez que tenemos la entrada creada existen diferentes maneras de referenciarla:
+\begin{itemize}
+    \item Si se desea que aparezca el nombre del autor/a y el año de publocación se usa \texttt{cite{key}} lo que se ve así: \cite{Ejemplo}.
+    \item Si se hace una mención al nombre se usa \texttt{textcite{key}} lo que se ve así: \textcite{Ejemplo}.
+    \item Si se hace una referencia al texto pero no se menciona al autor se puede usar \texttt{parencite{key}} lo que se ve así: \parencite{Ejemplo}.
+    \item Se puede hacer una cita al pie de página con \texttt{footcite{key}} lo que se ve así\footcite{Ejemplo}.
+\end{itemize}
+
+\subsection{Notas al pie de página}
+Es posible también hacer notas al pie de página con el comando \texttt{footnote}\footnote{Esta es una nota al pie de página.}. Note que toda la numeración se hace automáticamente.
