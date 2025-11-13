@@ -1,0 +1,23 @@
+Comprension del proyecto:
+Se debe crear un programa que lea una secuencia de ADN (formada por letras A, C, G y T) y busque genes cortos dentro de ella.
+El programa usa un arbol 4-ario (tipo trie) para guardar las combinaciones posibles de genes y listas enlazadas para guardar las 
+posiciones donde aparecen.
+Debe permitir comandos para:
+- crear el arbol con un tamaño de gen (bio start m)
+- leer la secuencia desde un archivo (bio read adn.txt)
+- buscar un gen (bio search XX)
+- mostrar el gen mas repetido (bio max)
+- mostrar el gen menos repetido (bio min)
+- ver todos (bio all)
+- salir (bio exit)
+
+Pasos para el desarrollo:
+- Definir los nodos, tanto como para los nodos internos (los que tienen hijos), como para los externos (los que contienen la lista de posiciones)
+- Implementar funciones clave: inicializar, carga de la secuencia, busqueda y analisis, liberacion de memoria
+- Implementar makefile
+- Desarrollo del informe
+El codigo se dividira en tres partes para poder manipular de mejor manera:
+- lista.h/lista.c: encargado del manejo de listas enlazadas
+- trie.h/trie.c: implementacion del arbol
+- main.c
+Todo sera documentado con formato doxygen
