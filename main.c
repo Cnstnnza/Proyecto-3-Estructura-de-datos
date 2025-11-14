@@ -2,11 +2,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
-#define MORADO "\033[1;35m"
-#define RESET "\033[0m"
-#define AMARILLO "\033[33m"
-#define ROJO "\033[1;31m"
-#define VERDE "\033[1;32m"
+
 
 // Las variables globales deben ser definidas aqui ya que son 'extern' en trie.h
 int GEN_SIZE = 0;

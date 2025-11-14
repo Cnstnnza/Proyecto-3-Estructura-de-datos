@@ -21,3 +21,4 @@ El codigo se dividira en tres partes para poder manipular de mejor manera:
 - trie.h/trie.c: implementacion del arbol
 - main.c
 Todo sera documentado con formato doxygen
+IMPLEMENTAR INTERFAZ DE TERMINAL, COLORES Y MENSAJES DE ERROR
