@@ -1,0 +1,22 @@
+\babel@toc {spanish}{}\relax 
+\contentsline {section}{\numberline {1}Introduccion}{2}{section.1}%
+\contentsline {section}{\numberline {2}Objetivos}{3}{section.2}%
+\contentsline {section}{\numberline {3}Estructuras de datos}{4}{section.3}%
+\contentsline {subsection}{\numberline {3.1}Lista enlazada}{4}{subsection.3.1}%
+\contentsline {subsubsection}{\numberline {3.1.1}Nodo}{4}{subsubsection.3.1.1}%
+\contentsline {subsection}{\numberline {3.2}Arboles}{6}{subsection.3.2}%
+\contentsline {subsubsection}{\numberline {3.2.1}Arbol 4-ario (Trie)}{8}{subsubsection.3.2.1}%
+\contentsline {section}{\numberline {4}Implementacion de comandos}{10}{section.4}%
+\contentsline {subsection}{\numberline {4.1}bio start m}{10}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}bio read archivo.txt}{10}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}bio search XX}{11}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}bio max, bio min, bio all}{11}{subsection.4.4}%
+\contentsline {subsubsection}{\numberline {4.4.1}bio max}{12}{subsubsection.4.4.1}%
+\contentsline {subsubsection}{\numberline {4.4.2}bio min}{12}{subsubsection.4.4.2}%
+\contentsline {subsubsection}{\numberline {4.4.3}bio all}{13}{subsubsection.4.4.3}%
+\contentsline {subsection}{\numberline {4.5}bio exit}{14}{subsection.4.5}%
+\contentsline {subsection}{\numberline {4.6}help}{14}{subsection.4.6}%
+\contentsline {section}{\numberline {5}Diseño del programa (arquitectura general)}{15}{section.5}%
+\contentsline {section}{\numberline {6}Manejo de memoria}{16}{section.6}%
+\contentsline {section}{\numberline {7}Conclusion}{17}{section.7}%
+\contentsline {section}{Referencias}{18}{section*.11}%

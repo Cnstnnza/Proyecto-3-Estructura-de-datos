@@ -1,82 +1,381 @@
-\section{Contenido del informe}
-Este es un ejemplo de contenido de un informe parcial para el proyecto \textbf{LoopWeb}
-Inicialmente es importante saber lo básico: para usar negrita usamos el comando \textbf{textbf} y para cursiva usamos \textit{textit}, para incluir código en línea usamos \texttt{texttt}.
-
-\subsection{Numeración} % Esto sería un subtítulo
-A continuación se hace un ejemplo de numeración:
-
-\begin{enumerate}
-    \item En una enumeración uno puede dejar claro que los elementos se suceden unos detrás de los otros.
-    \item Este sería el segundo elemento
-    \item Este sería el tercer elemento
-    \item Este sería el cuarto elemento qut tiene dos elementos adicionales
-    \begin{enumerate}
-        \item Este sería el primer elemento de la enumeración anidada
-        \item Este sería el segundo elemento de la enumeración anidada
-    \end{enumerate}
-    \item Este sería el quinto elemento
-\end{enumerate}
-
-\subsection{Itemización}
-Lo anterior también se puede hacer con puntos en lugar de numeración:
-
+\section{Introduccion}
+Este proyecto tiene como objetivo crear un programa que lea una secuencia de ADN (formada por letras A, C, G y T) y busque genes cortos dentro de ella. 
+Para ello se utilizaran diversas estructuras de datos. Se implementara un arbol 4-ario (tipo trie) para guardar las combinaciones posibles 
+de genes y listas enlazadas para guardar las posiciones donde aparecen. 
+Se implementara la deteccion de comandos, entre ellos estaran:
 \begin{itemize}
-    \item En una itemización uno puede listar elementos sin necesidad de un orden.
-    \item Este sería el segundo elemento
-    \item Este sería el tercer elemento
-    \item Este sería el cuarto elemento qut tiene dos elementos adicionales que si son numerados
-    \begin{enumerate}
-        \item Este sería el primer elemento de la enumeración anidada
-        \item Este sería el segundo elemento de la enumeración anidada
-    \end{enumerate}
-    \item Este sería el quinto elemento
+    \item  \textbf{bio start m:} crea un arbol 4-ario con genes de tamaño m
+    \item  \textbf{bio read archivo.txt:} lee la secuencia de ADN desde el archivo archivo.txt
+    \item  \textbf{bio search XX:} busca el gen XX en la secuencia
+    \item  \textbf{bio max:} muestra el gen mas repetido en la secuencia
+    \item  \textbf{bio min:} muestra el gen menos repetido en la secuencia
+    \item  \textbf{bio all:} muestra todos los gen que tienen frecuencia > 0
+    \item  \textbf{bio exit:} libera memoria y sale del programa
+\end{itemize}
+El proyecto se desarrolla en el lenguaje de programacion C.
+
+\newpage
+\section{Objetivos}
+\begin{itemize}
+    \item Implementar un sistema de búsqueda de patrones utilizando árboles tries.
+    \item Implementar y manipular estructuras de datos abstractas como árboles y listas enlazadas para almacenar y gestionar los datos manipulados.
+    \item Desarrollar habilidades en programación en lenguaje C, centrándose en el manejo de memoria, punteros y eficiencia algorítmica.
 \end{itemize}
 
-\subsection{Código fuente}
-Otra cosa que podrían necesitar es la inclusión de código fuente como el mostrado en el Listing \ref{lst:codigo} (note que en el PDF la numeración es automática gracias a los\texttt{labels}):
+\newpage
+\section{Estructuras de datos}
+Para la implementación del proyecto se utilizaron las siguientes estructuras de datos:
+\begin{itemize}
+    \item Lista enlazada (Linked List)
+    \item Arbol 4-ario (Trie)
+\end{itemize}
+    \subsection{Lista enlazada}
+    Una \textbf{lista enlazada} es una estructura de datos dinámica que consiste en una serie de elementos llamados nodos, donde cada nodo contiene un dato y una referencia 
+    al siguiente nodo en la secuencia. A diferencia de un array, las listas enlazadas permiten un crecimiento dinámico sin un tamaño fijo y facilitan la inserción 
+    y eliminación de elementos, ya que solo requieren actualizar referencias.\\
 
-\begin{lstlisting}[style=CodeStyle, language=C, caption={Este es un codigo fuente}, label={lst:codigo}]
-#include <stdio.h>
+    Sin embargo, las listas enlazadas presentan tanto ventajas como desventajas frente a los arreglos:
+    \begin{itemize}
+        \item \textbf{Ventajas:} Inserciones y eliminaciones en cualquier posición sin necesidad de mover todos los elementos. Crecimiento dinámico sin tamaño predefinido.
+        \item \textbf{Desventajas:} La búsqueda de un dato específico requiere recorrer la lista nodo por nodo ($O(N)$), mientras que en un arreglo, si se conoce el índice, se puede acceder directamente en $O(1)$.
+    \end{itemize}
+    Para comprender mejor una lista enlazada es importante saber que es un nodo.
+        \subsubsection{Nodo}
+        En informática, un nodo es un elemento individual de una estructura de datos que almacena información y, en muchos casos, tiene referencias o enlaces a otros nodos. 
+        Los nodos son la base de muchas estructuras de datos dinámicas, como listas enlazadas, árboles y grafos.\\
+        Un nodo tiene dos componentes principales:
+        \begin{itemize}
+            \item  \textbf{Dato}: La información que el nodo almacena, que puede ser de cualquier tipo de dato, como un número, una cadena de texto o un objeto más complejo.
+            \item  \textbf{Referencia}:Un puntero o referencia al siguiente nodo en la lista
+        \end{itemize}
+        En la siguiente imagen se puede apreciar de manera grafica que es un nodo y tambien un extracto de codigo en C que representa un nodo de una lista enlazada.
+        \begin{figure}[H]
+            \centering % Para que aparezca centrada
+            \includegraphics[width=0.5\textwidth]{./src/images/Nodo.png} 
+            \caption{Nodo} 
+            \label{fig: nodo} 
+        \end{figure}
 
-int main() {
-    printf("Hola mundo!");
-    return 0;
-}
-\end{lstlisting}
+        \begin{lstlisting}[style=CodeStyle, language=C, caption={Creacion de Nodo}, label={lst:codigo}]
+        /*Definición del nodo*/
+        typedef struct Nodo {
+            int dato;               /*Valor almacenado*/
+            struct Nodo* siguiente; /*Puntero al siguiente nodo*/
+        } Nodo;
 
-\subsection{Imagen}
-Otra cosa que puede desear hacer es incluir imágenes lo que se hace como se muestra en la figura \ref{fig:imagen}.
-\begin{figure}[!ht]
+        /*Creación de un nuevo nodo*/
+        Nodo* crearNodo(int valor) {
+            Nodo* nuevo = (Nodo*) malloc(sizeof(Nodo));
+            nuevo->dato = valor;
+            nuevo->siguiente = NULL;
+            return nuevo;
+        }
+        \end{lstlisting}
+
+    Las listas enlazadas tienen un nodo inicial llamado \textbf{head} el cual apunta al primer elemento de la lista. Si se llega a un nodo que no apunta a ningún otro, 
+    se dice que dicho nodo apunta a \textbf{null} o final de la lista.\\
+    En la siguiente imagen se puede apreciar de manera grafica que es una lista enlazada y su implementacion en C
+    \begin{figure}[H]
+        \centering % Para que aparezca centrada
+        \includegraphics[width=0.9\textwidth]{./src/images/ListaEnlazada.png} 
+        \caption{Lista enlazada} 
+        \label{fig: lista} 
+    \end{figure}
+
+    \begin{lstlisting}[style=CodeStyle, language=C, caption={Estructura lista enlazada}, label={lst:codigo}]
+    /*Inserta un nodo al final de la lista*/ 
+    void insertarFinal(Nodo** cabeza, int valor) {
+        Nodo* nuevo = crearNodo(valor);
+        if (*cabeza == NULL) {
+            *cabeza = nuevo;
+            return;
+        }
+        Nodo* actual = *cabeza;
+        while (actual->siguiente != NULL) {
+            actual = actual->siguiente;
+        }
+        actual->siguiente = nuevo;
+    }
+    \end{lstlisting}
+
+    La lista enlazada, se utiliza dentro del arbol 4-ario para almacenar las posiciones donde aparecen los genes.
+    En el nodo hoja del Trie (aquel que corresponde al final de un gen de longitud m), se almacena un puntero a una lista \verb|(ListaInt* lista_posiciones)|. 
+    Cada nodo de esta lista (ListaInt) guarda un entero: la posición (índice 0-basado) donde ese gen comienza en la secuencia S. Es decir cada vez que el programa detecta 
+    un gen (una secuencia de longitud m) dentro de la secuencia principal de ADN, se almacena su posición inicial (el índice donde empieza).  
+
+    Como un mismo gen puede aparecer muchas veces en distintas partes de la secuencia, se necesita una estructura que permita agregar fácilmente nuevas posiciones
+    sin un tamaño fijo ni un límite predefinido. Aqui es donde se utiliza la \textbf{lista enlazada}.
+    Tambien permite que el programa no solo diga si un gen existe, sino también cuántas veces (bio search, bio max, bio min) y dónde comienza cada aparición.
+    
+    \subsection{Arboles}
+    Los Árboles son las estructuras de datos mas utilizadas, pero también una de las mas complejas, Los Árboles se caracterizan por almacenar sus nodos en 
+    forma jerárquica y no en forma lineal como las Listas enlazadas, Colas,Pilas,etc.
+     \begin{figure}[H]
+        \centering % Para que aparezca centrada
+        \includegraphics[width=0.4\textwidth]{./src/images/ArbolvsLista.png} 
+        \caption{Visualización de árbol vs lista} 
+        \label{fig: lista vs arbol} 
+    \end{figure}
+
+    Para comprender que es un arbol, es importante entender como esta estructurado y cuales son sus componentes. Algunos de ellos son:
+    \begin{itemize}
+        \item \textbf{Nodo:} Se le llama nodo a cada elemento que contiene un arbol.
+        \item \textbf{Raiz:} Es el nodo principal del arbol, es el primer nodo del arbol, solo puede haber un nodo como raiz.
+        \item \textbf{Padre:} Este termino representa a cualquier nodo que tiene al menos un hijo.
+        \item \textbf{Hijo:} Los hijos son los nodos que tienen un padre.
+        \item \textbf{Nodo hermano:} Los nodos hermanos son aquellos que comparten el mismo padre.
+        \item \textbf{Hoja:} Son los nodos que no tienen hijos, por lo tanto siempre se encuentran en los extremos de un arbol.
+    \end{itemize}
+    Puede ser algo dificil de comprender, por lo que a continuacion se muestra una imagen que ejemplifica los conceptos antes mencionados.
+     \begin{figure}[H]
+        \centering % Para que aparezca centrada
+        \includegraphics[width=0.5\textwidth]{./src/images/Arbol.png} 
+        \caption{Componentes de un arbol} 
+        \label{fig: componentes arbol}
+    \end{figure}
+    Los árboles a demas de nodos tienen otras propiedades importantes como:
+    \begin{itemize}
+        \item \textbf{Nivel:} El nivel es cada generacion dentro del arbol, por ejemplo: si se tiene un nodo hoja y se le agrega un hijo, entonces el nodo hoja se convierte
+        en un nodo rama, pero a demas el arbol aumenta un nivel mas.
+        \item \textbf{Altura:} La altura de un arbol es la cantidad de niveles que tiene el arbol.
+        \begin{figure}[H]
+            \centering % Para que aparezca centrada
+            \includegraphics[width=0.35\textwidth]{./src/images/nivelyaltura.png} 
+            \caption{Nivel y altura de un arbol} 
+            \label{fig: nivel y altura de un arbol} 
+        \end{figure}
+        \item \textbf{Peso:} El peso corresponde a la cantidad de nodos que tiene un arbol, es un concepto muy importante ya que permite tener una idea de que tan grande es 
+        el arbol y el tamaño de memoria que usara en ejecucion.
+        \begin{figure}[H]
+            \centering % Para que aparezca centrada
+            \includegraphics[width=0.35\textwidth]{./src/images/peso.png} 
+            \caption{Peso de un arbol} 
+            \label{fig: peso de un arbol} 
+        \end{figure}
+    \end{itemize}
+    A continuacion un estracto de codigo en C de un arbol binario:
+    \begin{lstlisting}[style=CodeStyle, language=C, caption={Arbol binario}, label={lst:codigo}]
+    /*Estructura para un Nodo de Árbol Binario (2 hijos)*/
+    typedef struct NodoArbol {
+        int dato; /*El valor que almacena el nodo*/
+        /*Punteros a los hijos (recursivos)*/
+        struct NodoArbol* izquierda; /*Puntero al subárbol izquierdo*/
+        struct NodoArbol* derecha;  /*Puntero al subárbol derecho*/
+    } NodoArbol;
+    \end{lstlisting}
+    \subsubsection{Arbol 4-ario (Trie)}
+    Existen muchas formas de implementar un arbol, por ejemplo un arbol binario, pero en este proyecto se utilizara un arbol 4-ario (tipo trie). 
+    Este tipo de arbol tiene 4 hijos posibles, uno por cada letra del ADN (A, C, G y T). Los tries se usan comunmente en sistemas de busqueda de 
+    patrones porque permiten recorrer y almacenar grandes cantidades de datos de forma ordenada y eficiente. Gracias a su estructura, es posible encontrar 
+    patrones dentro de una secuencia de manera rapida sin necesidad de comparar cada combinacion manualmente.\\
+    El arbol 4-ario se puede representar mediante la siguiente imagen:
+    \begin{figure}[H]
+        \centering % Para que aparezca centrada
+        \includegraphics[width=0.5\textwidth]{./src/images/arbol4.png} 
+        \caption{Arbol 4-ario} 
+        \label{fig: arbol 4-ario}
+    \end{figure}
+\newpage
+\section{Implementacion de comandos}
+En este proyecto se implementaron principalmente siete comandos para interactuar con el programa. 
+Estos comandos permiten al usuario iniciar el arbol, leer la secuencia de ADN, buscar genes,etc.
+    \subsection{bio start m}
+    Este comando crea un arbol de orden m, donde m es el tamaño de la secuencia de ADN.
+        \begin{lstlisting}[style=CodeStyle, language=C, caption={Implementacion bio start m}, label={lst:codigo}]
+            Nodo* bio_start(int m) {
+            if (m <= 0) {
+                printf("Error: El tamano del gen (m) debe ser mayor a 0.\n");
+                return NULL;
+            }
+            if (TRIE_ROOT != NULL) {
+                bio_exit();
+            }
+            GEN_SIZE = m;
+            TRIE_ROOT = generar_arbol_recursivo(0, m);
+
+            if (TRIE_ROOT != NULL) {
+                printf("Arbol creado con tamano %d\n", m);
+            } else {
+                printf("Error al crear el arbol.\n");
+            }
+            return TRIE_ROOT;
+        }
+        \end{lstlisting}
+
+    \subsection{bio read archivo.txt}
+    Este comando lee la secuencia de ADN desde el archivo archivo.txt.
+        \begin{lstlisting}[style=CodeStyle, language=C, caption={Fragmento clave read archivo.txt}, label={lst:codigo}]
+            /*Logica para leer toda la secuencia S*/
+            fseek(file, 0, SEEK_END);
+            long n_size = ftell(file);
+            fseek(file, 0, SEEK_SET);
+
+            char* secuencia_S = (char*)malloc(n_size + 1);
+            /*Verificación de malloc*/
+            size_t read_len = fread(secuencia_S, 1, n_size, file);
+            fclose(file);
+        \end{lstlisting}
+        \textbf{Aginacion dinamica:}Se utiliza fseek y ftell para determinar el tamaño exacto del archivo (n) y luego se asigna dinámicamente el buffer \verb|secuencia_S| con malloc.
+        Esto garantiza que la secuencia genética completa se cargue en la memoria (heap) de un solo golpe con fread, mejorando la eficiencia de lectura del archivo.
+
+    \subsection{bio search XX}
+    La función \verb|bio_search| implementa el núcleo del sistema de búsqueda. Su objetivo es encontrar la frecuencia y todas las posiciones de inicio de un gen específico 
+    (de longitud m) dentro de la secuencia genética S previamente cargada en el Árbol Trie
+        \begin{lstlisting}[style=CodeStyle, language=C, caption={Fragmento clave bio search XX}, label={lst:codigo}]
+            /** Verificar que el arbol esta inicializado **/
+            if (TRIE_ROOT == NULL || GEN_SIZE == 0) return -1;
+            /** Validar que el gen tenga el largo correcto **/
+            if ((int)strlen(gen_G) != GEN_SIZE) return -1;
+            /** Recorrer el trie segun cada caracter del gen **/
+            for (int i = 0; i < GEN_SIZE; i++) {
+                int index = get_base_index(gen_G[i]);
+                if (index == -1) return -1;     /** caracter invalido **/
+                actual = actual->hijos[index];  /** avanzar en el arbol **/
+            }
+            /** Contar cuantas veces aparece el gen **/
+            int frecuencia = contar_posiciones(actual->lista_posiciones);
+            if (frecuencia == 0) return -1;
+            /** Imprimir el gen, su frecuencia y posiciones **/
+            printf("%s %d", gen_G, frecuencia);
+            imprimir_posiciones(actual->lista_posiciones);
+        \end{lstlisting}
+
+    \subsection{bio max, bio min, bio all}
+        Estos comandos permiten obtener el gen mas repetido (bio max), el gen menos repetido (bio min) y todos los gen que tienen frecuencia > 0 (bio all).
+        A continuacion extractos de cada uno de estos comandos
+        \subsubsection{bio max}
+            Busca dentro del árbol el gen con mayor frecuencia. Se realiza un recorrido completo (DFS) y en cada 
+            hoja se compara la frecuencia actual con la maxima encontrada hasta el momento.
+                \begin{lstlisting}[style=CodeStyle, language=C, caption={Funcion bio max}, label={lst:codigo}]
+                void bio_max() {
+                    if (TRIE_ROOT == NULL || GEN_SIZE == 0) { printf("Error: Arbol no cargado.\n"); return; }
+                    char* gen_buffer = (char*)malloc(GEN_SIZE + 1);
+                    if (gen_buffer == NULL) { perror("Error de asignacion de memoria"); return; }
+                    int max_freq = 0; 
+                    recorrido_extremos(TRIE_ROOT, gen_buffer, 0, 1, &max_freq);
+                    if (max_freq == 0) { printf("No hay genes presentes.\n"); free(gen_buffer); return; }
+                    imprimir_recorrido(TRIE_ROOT, gen_buffer, 0, max_freq);
+                    free(gen_buffer);
+                }
+                \end{lstlisting}
+        \subsubsection{bio min}
+            Similar a bio max, pero busca el gene con frecuencia minima > 0. Ignora hojas sin apariciones. Comparte la misma estrategia de recorrido pero con la condicion inversa.
+            \begin{lstlisting}[style=CodeStyle, language=C, caption={Funcion bio min}, label={lst:codigo}]
+            void bio_min() {
+                if (TRIE_ROOT == NULL || GEN_SIZE == 0) { printf("Error: Arbol no cargado.\n"); return; 
+                char* gen_buffer = (char*)malloc(GEN_SIZE + 1);
+                if (gen_buffer == NULL) { perror("Error de asignacion de memoria"); return; }
+                int min_freq = INT_MAX;
+                recorrido_extremos(TRIE_ROOT, gen_buffer, 0, 0, &min_freq);
+                if (min_freq == INT_MAX) { printf("No hay genes presentes.\n"); free(gen_buffer); return; }
+                imprimir_recorrido(TRIE_ROOT, gen_buffer, 0, min_freq);
+                free(gen_buffer);
+            }
+            \end{lstlisting}
+        \subsubsection{bio all}
+            Recorre todas las hojas del arbol y muestra solo aquellas cuyo conteo de apariciones es mayor a cero. Es una enumeración completa de 
+            todos los genes presentes en los datos cargados.
+            \begin{lstlisting}[style=CodeStyle, language=C, caption={Funcion bio all}, label={lst:codigo}]
+            void bio_all() {
+                if (TRIE_ROOT == NULL || GEN_SIZE == 0) { printf("Error: Arbol no cargado.\n"); return; }
+                char* gen_buffer = (char*)malloc(GEN_SIZE + 1);
+                if (gen_buffer == NULL) { perror("Error de asignacion de memoria"); return; }
+                /*Funcion recursiva interna para ALL (imprime todos los que tengan frecuencia > 0)*/ 
+                void bio_all_recursivo(Nodo* nodo, char* buffer, int nivel) {
+                    if (nodo == NULL) return;
+                    if (nivel == GEN_SIZE) {
+                        int frecuencia = contar_posiciones(nodo->lista_posiciones);
+                        if (frecuencia > 0) {
+                            buffer[GEN_SIZE] = '\0';
+                            printf("%s %d", buffer, frecuencia);
+                            imprimir_posiciones(nodo->lista_posiciones);
+                            printf("\n");
+                        }
+                        return;
+                    }
+                    const char bases[] = {'A', 'C', 'G', 'T'};
+                    for (int i = 0; i < 4; i++) {
+                        buffer[nivel] = bases[i];
+                        bio_all_recursivo(nodo->hijos[i], buffer, nivel + 1);
+                    }
+                }
+                bio_all_recursivo(TRIE_ROOT, gen_buffer, 0);
+                free(gen_buffer);
+            }
+            \end{lstlisting}
+            El arreglo \verb|gen_buffer| se utiliza para reconstruir el gen letra por letra durante el recorrido del árbol. Como cada nivel del Trie representa una base del 
+            ADN, el buffer permite almacenar la 'ruta' tomada para llegar a cada hoja, reconstruyendo asi el gen completo sin necesidad de almacenarlo textualmente en cada nodo 
+            (lo cual ahorra memoria).
+        \subsubsection*{Complejidad computacional}
+            \begin{itemize}
+            \item El recorrido completo del Trie tiene complejidad $O(4^m)$ donde $m = GEN_SIZE$ (longitud del gen). 
+            \item Esto es eficiente porque el tamaño del alfabeto es fijo (A,C,G,T) y m es pequeño y constante en el contexto biologico.
+            \item Las funciones bio max, bio min y bio all tienen la misma complejidad porque requieren recorrer todas las hojas.
+            \end{itemize}
+        \subsection{bio exit}
+            void bio_exit() {
+            liberar_arbol(TRIE_ROOT);
+            TRIE_ROOT = NULL;
+            GEN_SIZE = 0;
+            printf("Limpiando cache y salendo del programa...\n");
+            }
+            \end{lstlisting}
+        \subsection{help}
+        Este comando es un adicional, ya que no estaba en los requerimientos iniciales, pero se considero importante para el usuario. Ya que al iniciar el programa no 
+        hay nada que indique como funciona si el usuario no tiene conocimientos previos. Para todo lo relacionado con la salida por terminal se utilizo definicion de macros
+        con el fin de tener una interfaz mas atractiva para el usuario.\\
+        A continuacion la salida por terminal de la funcion \verb|help|:
+        \begin{figure}[H]
+        ]
+            \centering % Para que aparezca centrada
+            \includegraphics[width=0.6\textwidth]{./src/images/help.png} 
+            \caption{Salida por terminal del comando help} 
+            \label{fig: help}
+        \end{figure}
+\newpage
+\section{Diseño del programa (arquitectura general)}
+Al ejecutar el programa pasa por los siguientes pasos:
+\begin{itemize}
+    \item bio start 4: Crea un arbol 4-ario con genes de tamaño 4.
+    \item bio read adn.txt: Lee la secuencia de ADN desde el archivo adn.txt.
+    \item bio search XX: Busca el gen XX en la secuencia.
+    \item bio maz/min/all: recorren todo el arbol y muestran los genes que cumplen con la condición.
+    \item bio exit: libera memoria y sale del programa.
+\end{itemize}
+Al ejecutar se tiene la siguiente salida por terminal:
+\begin{figure}[H]
     \centering % Para que aparezca centrada
-    \includegraphics[width=0.5\textwidth]{./src/images/umag.png} % Esta linea incluye la imagen
-    \caption{Esta es una imagen} % Este es el mensaje que acompaña la imagen
-    \label{fig:imagen} % Esta es la referencia a la imagen
+    \includegraphics[width=0.7\textwidth]{./src/images/salida.png} 
+    \caption{Salida por terminal del programa} 
+    \label{fig: salida por terminal}
 \end{figure}
 
-\subsection{Referencias bibliográficas}
-Lo primero necesario para incluir una referencia bibliográfica es agregar una entrada en el archivo \texttt{referencias.bib} con el formato \texttt{key = value}, a continuación se muestra un ejemplo de entrada:
-
-\lstinputlisting[style=codestyle, caption={Entrada bibliográfica}, label={lst:referencias}]{./referencias.bib}  % Esta es una forma de incluir un archivo
-
-Las partes de la entrada que se muestran en el listing \ref{lst:referencias} son las siguientes:
+\newpage
+\section{Manejo de memoria}
+El programa hace un uso intensivo de memoria dinamica, ya que tanto el arbol (trie) como las listas enlazadas se construyen en tiempo de ejecucion a 
+partir de la secuencia de ADN cargada. Para ello se utilizan los siguientes mecanismos:
 \begin{itemize}
-    \item \textbf{title}: Título de la referencia
-    \item \textbf{author}: Autor(es) de la referencia (Si son muchos separarlos con la palabra \texttt{and})
-    \item \textbf{url}: URL de la referencia
-    \item \textbf{year}: Año de publicación
-    \item \textbf{month}: Mes de publicación
-    \item \textbf{day}: Día de publicación
-    \item \textbf{urldate}: Fecha en que visitó la referencia
+    \item \textbf{malloc:} Se emplea para reservar memoria de forma dinamica para cada nodo del arbol y para cada nodo de las listas enlazadas donde se almacenan las posiciones de aparicion de cada gen.
+    \item \textbf{free:} Se utiliza para liberar toda la memoria asignada una vez que el programa finaliza o cuando se ejecuta el comando \texttt{bio exit}. Esto evita fugas de memoria (memory leaks).
+    \item \textbf{Estructuras dinamicas:} 
+    El arbol se implementa como un trie 4-ario, donde cada nodo contiene un arreglo de cuatro punteros (\texttt{A, C, G, T}). En las hojas del arbol, cada gen almacena una lista enlazada con todas las posiciones donde aparece en la secuencia.
 \end{itemize}
-Estos campos corresponden a una referencia de tipo \texttt{@online} que es para citar una fuente en línea, si va a citar un libro u otra fuente que no sea online se usaría \texttt{@book} o \texttt{@article} con los campos que corresponda.
-
-Una vez que tenemos la entrada creada existen diferentes maneras de referenciarla:
-\begin{itemize}
-    \item Si se desea que aparezca el nombre del autor/a y el año de publocación se usa \texttt{cite{key}} lo que se ve así: \cite{Ejemplo}.
-    \item Si se hace una mención al nombre se usa \texttt{textcite{key}} lo que se ve así: \textcite{Ejemplo}.
-    \item Si se hace una referencia al texto pero no se menciona al autor se puede usar \texttt{parencite{key}} lo que se ve así: \parencite{Ejemplo}.
-    \item Se puede hacer una cita al pie de página con \texttt{footcite{key}} lo que se ve así\footcite{Ejemplo}.
-\end{itemize}
-
-\subsection{Notas al pie de página}
-Es posible también hacer notas al pie de página con el comando \texttt{footnote}\footnote{Esta es una nota al pie de página.}. Note que toda la numeración se hace automáticamente.
+Cada nodo del arbol se reserva mediante \texttt{malloc}, incluyendo su arreglo de punteros a hijos. De forma similar, cada posicion encontrada en la secuencia se 
+inserta en una lista enlazada, cuyos nodos tambien son reservados dinamicamente.
+Para asegurar una correcta administracion de memoria, el programa realiza un recorrido postorden del arbol al momento de liberar los recursos. En este proceso:
+\begin{enumerate}
+    \item Se liberan primero todas las listas enlazadas asociadas a cada hoja.
+    \item Luego se libera cada nodo del arbol recursivamente.
+    \item Finalmente, se libera la memoria utilizada por la secuencia principal y demas buffers auxiliares.
+\end{enumerate}
+Esto garantiza que ninguna referencia quede perdida y que toda la memoria solicitada al sistema sea correctamente devuelta.
+\newpage
+\section{Conclusion}
+El desarrollo de este proyecto permitio implementar un sistema eficiente para el analisis de secuencias de ADN mediante el uso de estructuras de datos dinamicas. 
+El arbol 4-ario (trie) demostro ser especialmente adecuado para almacenar y buscar genes de longitud fija, permitiendo realizar consultas en tiempo O(m) sin depender del 
+tamano total de la secuencia. Complementariamente, las listas enlazadas utilizadas en cada nodo hoja permitieron registrar todas las posiciones de aparicion de cada gen, 
+proporcionando informacion completa y facilmente accesible.
+Ademas, la gestion dinamica de memoria mediante \texttt{malloc} y \texttt{free} aseguro un uso responsable de los recursos, evitando fugas y permitiendo la liberacion 
+ordenada de todas las estructuras al finalizar la ejecucion del programa.
+En conjunto, el proyecto integra de manera efectiva conceptos fundamentales como arboles, listas enlazadas, manejo de memoria y diseño modular. 
+El resultado es una herramienta funcional que permite procesar y consultar secuencias geneticas de forma rapida, clara y eficiente.

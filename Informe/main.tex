@@ -1,29 +1,30 @@
 \documentclass{article}
 
 % VARIABLES
-\title{Este es el titulo del informe}
-\author{Nombre del autor del informe}
+\title{Optimización de la Búsqueda de Patrones Genéticos mediante Árboles} 
+\author{Integrantes: Constanza Araya \quad (\href{https://github.com/Cnstnnza}{GitHub/Cnstnnza})\\Profesor: Christian Vasquez \quad (\href{https://github.com/chvasquezr}{GitHub/chvasquezr})}
 \date{\today}
 
 % Paquetes para codificación y lenguaje
-\usepackage[utf8]{inputenc}                            % Codificación
-\usepackage[english, spanish]{babel}                   % Lenguaje
-\usepackage{csquotes}                                  % COmpatibilidad con BibLatex
-\spanishdecimal{.}                                     % Punto decimal
+\usepackage[utf8]{inputenc}                            
+\usepackage[english, spanish]{babel}                   
+\usepackage{csquotes}                                  
+\spanishdecimal{.}                                     
 
 % Paquetes para matemáticas
-\usepackage{amsmath, amsthm, amssymb}                  % Matemáticas
+\usepackage{amsmath, amsthm, amssymb}                  
 \usepackage{mathptmx}
 
 % Paquetes para geometría y diseño de página
-\usepackage[margin=2.5cm, headheight=2cm]{geometry}    % Márgenes
+\usepackage[margin=2.5cm, headheight=2cm]{geometry}    
 
 % Paquetes para gráficos y figuras
-\usepackage{graphicx}                                  % Imágenes
-\usepackage{wrapfig}                                   % Figuras a la derecha
+\usepackage{graphicx}                                  
+\usepackage{wrapfig}                                   
+\usepackage{float}
 
 % Paquetes para hipervínculos
-\usepackage{hyperref}                                  % Hipervínculos
+\usepackage{hyperref}                                  
 \hypersetup{
     colorlinks=true,
     linkcolor=black,
@@ -35,7 +36,6 @@
 \usepackage{fancyhdr}
 \pagestyle{fancy}
 
-% Encabezado y pie de página
 \rhead{\title}
 \lhead{}
 \cfoot{}
@@ -43,22 +43,25 @@
 
 % Paquetes adicionales
 \usepackage{caption}
-\usepackage{xcolor}                                    % Colores personalizados
+\usepackage{xcolor}                                    
 	\definecolor{codegreen}{rgb}{0,0.5,0}
 	\definecolor{codegray}{rgb}{0.5,0.5,0.5}
 	\definecolor{codepurple}{rgb}{0.5,0,0.5}
 	\definecolor{backcolour}{rgb}{0.95,0.95,0.95}
-\usepackage{listings}                                  % Para código
-\usepackage[backend=biber,style=apa]{biblatex}         % Bibliografía
+\usepackage{listings}                                  
+\usepackage[backend=biber,style=apa]{biblatex}         
 \addbibresource{referencias.bib}
 
+% Paquete para índice compacto
+\usepackage{tocloft}
+\setlength{\cftbeforesecskip}{3pt}   % menos espacio entre secciones del índice
 
 % Otras configuraciones
-\setlength{\parindent}{0pt}                               % Indentación
-\setlength{\parskip}{7pt}                                  % Espaciado entre párrafos
-\renewcommand{\baselinestretch}{1.5}                       % Interlineado
-\addto\captionsspanish{\renewcommand{\tablename}{Tabla}}   % Redefinir el nombre de la tabla
-\addto\captionsspanish{\renewcommand{\figurename}{Figura}} % Redefinir el nombre de la tabla
+\setlength{\parindent}{0pt}                               
+\setlength{\parskip}{7pt}                                  
+\renewcommand{\baselinestretch}{1.5}                       
+\addto\captionsspanish{\renewcommand{\tablename}{Tabla}}   
+\addto\captionsspanish{\renewcommand{\figurename}{Figura}} 
 
 % Definir el estilo para el código
 \lstdefinestyle{CodeStyle}{
@@ -80,8 +83,38 @@
     tabsize=2
 }
 
+% --- PORTADA CON LOGO OPCIONAL Y AUTOR MÁS ABAJO ---
+\makeatletter
+\renewcommand{\maketitle}{%
+\begin{titlepage}
+    \centering
+    % Logo opcional
+    \ifdefined\logo
+        \includegraphics[width=0.3\textwidth]{\logo}\par\vspace{1cm}
+    \fi
+    {\scshape\LARGE \@title \par}
+    \vspace{12cm} % espacio extra antes del autor y profesor
+    {\large \@author \par}
+    \vfill
+    {\large \@date \par}
+\end{titlepage}
+}
+\newcommand{\logo}[1]{\def\logo{#1}} % para definir el logo
+\makeatother
+% -------------------------------
+
 \begin{document}
+
+% Para agregar un logo, si deseas:
+\logo{src/images/umag.png} % Ruta al logo
+
 \maketitle
+\newpage
+
+% -----------------------
+% Índice automático
+% -----------------------
+\tableofcontents
 \newpage
 
 \input{./src/sections/contenido.tex}
