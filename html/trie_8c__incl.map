@@ -1,0 +1,16 @@
+<map id="trie.c" name="trie.c">
+<area shape="rect" id="Node000001" title=" " alt="" coords="189,5,243,31"/>
+<area shape="rect" id="Node000002" href="$trie_8h.html" title=" " alt="" coords="5,79,61,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="190,32,75,77,73,72,188,27"/>
+<area shape="rect" id="Node000003" href="$lista_8h.html" title=" " alt="" coords="34,152,97,177"/>
+<area shape="poly" id="edge3_Node000001_Node000003" title=" " alt="" coords="194,33,160,53,126,81,100,111,80,142,76,139,96,108,122,77,157,49,192,29"/>
+<area shape="rect" id="Node000004" title=" " alt="" coords="136,79,203,104"/>
+<area shape="poly" id="edge4_Node000001_Node000004" title=" " alt="" coords="211,32,187,69,182,66,206,30"/>
+<area shape="rect" id="Node000005" title=" " alt="" coords="227,79,298,104"/>
+<area shape="poly" id="edge5_Node000001_Node000005" title=" " alt="" coords="226,30,250,66,245,69,221,32"/>
+<area shape="rect" id="Node000006" title=" " alt="" coords="322,79,393,104"/>
+<area shape="poly" id="edge6_Node000001_Node000006" title=" " alt="" coords="240,28,323,70,321,75,238,33"/>
+<area shape="rect" id="Node000007" title=" " alt="" coords="417,79,487,104"/>
+<area shape="poly" id="edge7_Node000001_Node000007" title=" " alt="" coords="244,25,404,73,403,78,243,30"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="41,103,57,139,52,141,36,105"/>
+</map>

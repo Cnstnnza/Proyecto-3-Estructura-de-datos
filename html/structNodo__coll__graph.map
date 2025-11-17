@@ -1,0 +1,7 @@
+<map id="Nodo" name="Nodo">
+<area shape="rect" id="Node000001" title="Nodo del trie 4&#45;ario para almacenar genes." alt="" coords="13,93,69,119"/>
+<area shape="poly" id="edge1_Node000001_Node000001" title=" " alt="" coords="83,96,92,99,95,106,87,115,69,117,69,111,85,110,90,106,88,104,82,101"/>
+<area shape="rect" id="Node000002" href="$structListaInt.html" title="Nodo de la lista que guarda una posición." alt="" coords="5,5,76,31"/>
+<area shape="poly" id="edge2_Node000001_Node000002" title=" " alt="" coords="43,45,43,93,38,93,38,45"/>
+<area shape="poly" id="edge3_Node000002_Node000002" title=" " alt="" coords="91,9,99,12,103,18,94,27,77,29,76,23,92,22,97,18,96,16,89,14"/>
+</map>

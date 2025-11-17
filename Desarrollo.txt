@@ -1,4 +1,4 @@
-Comprension del proyecto:
+Comprension del proyecto (info para mi):
 Se debe crear un programa que lea una secuencia de ADN (formada por letras A, C, G y T) y busque genes cortos dentro de ella.
 El programa usa un arbol 4-ario (tipo trie) para guardar las combinaciones posibles de genes y listas enlazadas para guardar las 
 posiciones donde aparecen.

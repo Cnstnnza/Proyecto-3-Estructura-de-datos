@@ -1,0 +1,12 @@
+<map id="lista.h" name="lista.h">
+<area shape="rect" id="Node000001" title=" " alt="" coords="73,5,135,31"/>
+<area shape="rect" id="Node000002" href="$lista_8c.html" title=" " alt="" coords="5,79,67,104"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="85,42,49,80,45,77,82,39"/>
+<area shape="rect" id="Node000003" href="$trie_8c.html" title=" " alt="" coords="77,152,131,177"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="107,45,107,152,101,152,101,45"/>
+<area shape="rect" id="Node000004" href="$trie_8h.html" title=" " alt="" coords="141,79,197,104"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="126,39,161,77,157,80,122,43"/>
+<area shape="poly" id="edge5_Node000004_Node000003" title=" " alt="" coords="151,116,117,154,113,150,147,113"/>
+<area shape="rect" id="Node000005" href="$main_8c.html" title=" " alt="" coords="156,152,223,177"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="179,117,189,151,184,153,174,118"/>
+</map>

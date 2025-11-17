@@ -370,6 +370,79 @@ Para asegurar una correcta administracion de memoria, el programa realiza un rec
 \end{enumerate}
 Esto garantiza que ninguna referencia quede perdida y que toda la memoria solicitada al sistema sea correctamente devuelta.
 \newpage
+\section{Decisiones de Diseño del Proyecto}
+
+Durante el desarrollo de \textit{BioSearch} se tomaron diversas decisiones de diseño con el objetivo de asegurar un funcionamiento eficiente, modular y escalable del sistema. En esta sección se describen las principales decisiones adoptadas y sus motivaciones.
+
+\subsection{Estructura Principal del Árbol Trie}
+Se decidió utilizar un \textbf{trie 4-ario}(teniendo en cuenta que era un requisito del proyecto) como estructura principal  para almacenar las secuencias genéticas. Este trie contempla cuatro posibles hijos por nodo, correspondientes a las bases nitrogenadas \texttt{A, C, G, T}.  
+La elección de un trie responde a las siguientes consideraciones:
+
+\begin{itemize}
+    \item Permite realizar \textbf{búsquedas de patrones de tamaño fijo} en tiempo lineal respecto a la longitud del gen.
+    \item Ofrece una representación compacta y ordenada de las secuencias.
+    \item Facilita el almacenamiento independiente de cada gen mediante rutas únicas en el árbol.
+\end{itemize}
+
+\subsection{Almacenamiento de Posiciones}
+Para registrar todas las apariciones de un gen en el archivo de entrada se optó por utilizar una \textbf{lista enlazada simple}.  
+Esta estructura permite:
+
+\begin{itemize}
+    \item Insertar nuevas posiciones de forma eficiente.
+    \item Guardar múltiples ocurrencias sin necesidad de redimensionar arreglos.
+    \item Iterar sobre las posiciones para imprimir resultados en las operaciones \texttt{max}, \texttt{min} y \texttt{all}.
+\end{itemize}
+
+\subsection{Gestión del Largo del Gen (\texttt{m})}
+El proyecto requiere trabajar con patrones de tamaño fijo. Por este motivo se decidió:
+
+\begin{itemize}
+    \item Solicitar el valor de \texttt{m} mediante el comando \texttt{start}.
+    \item Mantenerlo como una variable global para permitir su uso en funciones críticas como lectura, inserción y búsqueda.
+\end{itemize}
+
+\subsection{Estructura del Programa y Modularidad}
+El código se dividió en múltiples módulos con el fin de lograr una arquitectura clara y mantenible:
+
+\begin{itemize}
+    \item \texttt{trie.h} / \texttt{trie.c}: construcción, búsqueda y manejo del árbol.
+    \item \texttt{lista.h} / \texttt{lista.c}: manejo de posiciones.
+    \item \texttt{main.c}: procesamiento de comandos y flujo principal del programa.
+\end{itemize}
+
+Esta separación mejora la legibilidad, facilita las pruebas individuales y permite modificar o extender partes del sistema sin afectar al resto.
+
+\subsection{Interfaz de Comandos}
+Se definió una pequeña interfaz interactiva que utiliza comandos como \texttt{start}, \texttt{read}, \texttt{search}, \texttt{max}, \texttt{min} y \texttt{all}.  
+Este diseño permite:
+
+\begin{itemize}
+    \item Ofrecer al usuario un control directo sobre cada operación.
+    \item Simplificar la ejecución sin depender de argumentos por línea de comandos.
+    \item Mostrar mensajes de error claros cuando los argumentos son incorrectos.
+\end{itemize}
+
+\subsection{Manejo de Memoria}
+Se dio especial importancia al manejo correcto de memoria dinámica:
+
+\begin{itemize}
+    \item Cada nodo del trie se asigna mediante \texttt{malloc()}.
+    \item Las listas enlazadas para posiciones se crean dinámicamente.
+    \item Se implementó la función \texttt{liberar\_arbol} para liberar recursivamente todo el trie.
+    \item El comando \texttt{exit} garantiza un cierre seguro y sin fugas de memoria.
+\end{itemize}
+
+\subsection{Justificación General}
+En conjunto, estas decisiones permiten que el sistema:
+
+\begin{itemize}
+    \item Tenga un rendimiento adecuado incluso con archivos grandes.
+    \item Sea fácil de extender con nuevas funcionalidades.
+    \item Mantenga una estructura clara y coherente.
+    \item Administre correctamente memoria y errores.
+\end{itemize}
+\newpage
 \section{Conclusion}
 El desarrollo de este proyecto permitio implementar un sistema eficiente para el analisis de secuencias de ADN mediante el uso de estructuras de datos dinamicas. 
 El arbol 4-ario (trie) demostro ser especialmente adecuado para almacenar y buscar genes de longitud fija, permitiendo realizar consultas en tiempo O(m) sin depender del 

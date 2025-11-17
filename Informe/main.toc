@@ -18,5 +18,13 @@
 \contentsline {subsection}{\numberline {4.6}help}{14}{subsection.4.6}%
 \contentsline {section}{\numberline {5}Diseño del programa (arquitectura general)}{15}{section.5}%
 \contentsline {section}{\numberline {6}Manejo de memoria}{16}{section.6}%
-\contentsline {section}{\numberline {7}Conclusion}{17}{section.7}%
-\contentsline {section}{Referencias}{18}{section*.11}%
+\contentsline {section}{\numberline {7}Decisiones de Diseño del Proyecto}{17}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Estructura Principal del Árbol Trie}{17}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Almacenamiento de Posiciones}{17}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}Gestión del Largo del Gen (\texttt {m})}{17}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}Estructura del Programa y Modularidad}{18}{subsection.7.4}%
+\contentsline {subsection}{\numberline {7.5}Interfaz de Comandos}{18}{subsection.7.5}%
+\contentsline {subsection}{\numberline {7.6}Manejo de Memoria}{18}{subsection.7.6}%
+\contentsline {subsection}{\numberline {7.7}Justificación General}{18}{subsection.7.7}%
+\contentsline {section}{\numberline {8}Conclusion}{20}{section.8}%
+\contentsline {section}{Referencias}{21}{section*.11}%
