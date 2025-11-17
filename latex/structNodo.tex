@@ -1,0 +1,52 @@
+\doxysection{Nodo Struct Reference}
+\hypertarget{structNodo}{}\label{structNodo}\index{Nodo@{Nodo}}
+
+
+\doxylink{structNodo}{Nodo} del trie 4-\/ario para almacenar genes.  
+
+
+
+
+{\ttfamily \#include $<$trie.\+h$>$}
+
+
+
+Collaboration diagram for Nodo\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=200pt]{structNodo__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structNodo}{Nodo}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structNodo_a0a594bf30461ba04478fece17351ee2f}{hijos}} \mbox{[}4\mbox{]}
+\item 
+\mbox{\hyperlink{structListaInt}{Lista\+Int}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{structNodo_a5809345fcd4d553acccfbd2a0e212bf9}{lista\+\_\+posiciones}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{structNodo}{Nodo} del trie 4-\/ario para almacenar genes. 
+
+Cada nodo representa una base del gen (A, C, G, T). En los nodos hoja se guarda una lista con las posiciones donde aparece el gen correspondiente. 
+
+\doxysubsection{Member Data Documentation}
+\Hypertarget{structNodo_a0a594bf30461ba04478fece17351ee2f}\label{structNodo_a0a594bf30461ba04478fece17351ee2f} 
+\index{Nodo@{Nodo}!hijos@{hijos}}
+\index{hijos@{hijos}!Nodo@{Nodo}}
+\doxysubsubsection{\texorpdfstring{hijos}{hijos}}
+{\footnotesize\ttfamily struct \mbox{\hyperlink{structNodo}{Nodo}}\texorpdfstring{$\ast$}{*} Nodo\+::hijos\mbox{[}4\mbox{]}}
+
+Punteros a los hijos\+: indices 0=A, 1=C, 2=G, 3=T \Hypertarget{structNodo_a5809345fcd4d553acccfbd2a0e212bf9}\label{structNodo_a5809345fcd4d553acccfbd2a0e212bf9} 
+\index{Nodo@{Nodo}!lista\_posiciones@{lista\_posiciones}}
+\index{lista\_posiciones@{lista\_posiciones}!Nodo@{Nodo}}
+\doxysubsubsection{\texorpdfstring{lista\_posiciones}{lista\_posiciones}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structListaInt}{Lista\+Int}}\texorpdfstring{$\ast$}{*} Nodo\+::lista\+\_\+posiciones}
+
+Lista de posiciones del gen (solo en hojas) 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{trie_8h}{trie.\+h}}\end{DoxyCompactItemize}

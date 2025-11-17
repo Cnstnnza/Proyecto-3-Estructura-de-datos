@@ -1,0 +1,80 @@
+\doxysection{main.\+c File Reference}
+\hypertarget{main_8c}{}\label{main_8c}\index{main.c@{main.c}}
+{\ttfamily \#include "{}trie.\+h"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+Include dependency graph for main.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=335pt]{main_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{main_8c_a840291bc02cba5474a4cb46a9b9566fe}{main}} (void)
+\begin{DoxyCompactList}\small\item\em Funcion principal del programa Bio\+Search. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{main_8c_a95358bdeddd751f06c16868aa90e8437}{GEN\+\_\+\+SIZE}} = 0
+\begin{DoxyCompactList}\small\item\em Tamano del gen cargado. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structNodo}{Nodo}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{main_8c_abaa122e91880745134fc211f49dd7c2a}{TRIE\+\_\+\+ROOT}} = NULL
+\begin{DoxyCompactList}\small\item\em \doxylink{structNodo}{Nodo} raiz del trie. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{main_8c_a840291bc02cba5474a4cb46a9b9566fe}\label{main_8c_a840291bc02cba5474a4cb46a9b9566fe} 
+\index{main.c@{main.c}!main@{main}}
+\index{main@{main}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Funcion principal del programa Bio\+Search. 
+
+Se encarga de recibir e interpretar comandos ingresados por el usuario. Los comandos disponibles permiten inicializar el trie, leer la secuencia de ADN, buscar genes, mostrar estadisticas y finalizar el programa.
+
+Comandos soportados\+:
+\begin{DoxyItemize}
+\item start m
+\item read archivo.\+txt
+\item search GEN
+\item max
+\item min
+\item all
+\item help
+\item exit
+\end{DoxyItemize}
+
+\begin{DoxyReturn}{Returns}
+0 al finalizar la ejecucion. 
+\end{DoxyReturn}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{main_8c_a95358bdeddd751f06c16868aa90e8437}\label{main_8c_a95358bdeddd751f06c16868aa90e8437} 
+\index{main.c@{main.c}!GEN\_SIZE@{GEN\_SIZE}}
+\index{GEN\_SIZE@{GEN\_SIZE}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{GEN\_SIZE}{GEN\_SIZE}}
+{\footnotesize\ttfamily int GEN\+\_\+\+SIZE = 0}
+
+
+
+Tamano del gen cargado. 
+
+Largo del gen utilizado por el trie. \Hypertarget{main_8c_abaa122e91880745134fc211f49dd7c2a}\label{main_8c_abaa122e91880745134fc211f49dd7c2a} 
+\index{main.c@{main.c}!TRIE\_ROOT@{TRIE\_ROOT}}
+\index{TRIE\_ROOT@{TRIE\_ROOT}!main.c@{main.c}}
+\doxysubsubsection{\texorpdfstring{TRIE\_ROOT}{TRIE\_ROOT}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structNodo}{Nodo}}\texorpdfstring{$\ast$}{*} TRIE\+\_\+\+ROOT = NULL}
+
+
+
+\doxylink{structNodo}{Nodo} raiz del trie. 
+
+Puntero a la raiz del trie principal. 

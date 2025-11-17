@@ -1,0 +1,129 @@
+\doxysection{lista.\+c File Reference}
+\hypertarget{lista_8c}{}\label{lista_8c}\index{lista.c@{lista.c}}
+{\ttfamily \#include "{}lista.\+h"{}}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+Include dependency graph for lista.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=267pt]{lista_8c__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structListaInt}{Lista\+Int}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lista_8c_ae95355591ee824199ef8f2e8163546d2}{crear\+\_\+nodo\+\_\+lista}} (int posicion)
+\begin{DoxyCompactList}\small\item\em Crea un nuevo nodo de lista que almacena una posicion. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structListaInt}{Lista\+Int}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{lista_8c_a02144f2f4b7488feec4246e7517bf160}{insertar\+\_\+posicion}} (\mbox{\hyperlink{structListaInt}{Lista\+Int}} \texorpdfstring{$\ast$}{*}cabeza, int posicion)
+\begin{DoxyCompactList}\small\item\em Inserta una posicion al final de la lista enlazada. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{lista_8c_adee0fa189a9726281d3a7869cb595a74}{contar\+\_\+posiciones}} (\mbox{\hyperlink{structListaInt}{Lista\+Int}} \texorpdfstring{$\ast$}{*}cabeza)
+\begin{DoxyCompactList}\small\item\em Cuenta la cantidad de nodos en la lista. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{lista_8c_a0fcbd2cf5f59bce8199bb27bf50a06f4}{imprimir\+\_\+posiciones}} (\mbox{\hyperlink{structListaInt}{Lista\+Int}} \texorpdfstring{$\ast$}{*}cabeza)
+\begin{DoxyCompactList}\small\item\em Imprime todas las posiciones almacenadas en la lista. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{lista_8c_a88708fc1ff1cf31397e5f0f9f48655e1}{liberar\+\_\+lista}} (\mbox{\hyperlink{structListaInt}{Lista\+Int}} \texorpdfstring{$\ast$}{*}cabeza)
+\begin{DoxyCompactList}\small\item\em Libera toda la memoria asociada a la lista enlazada. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{lista_8c_adee0fa189a9726281d3a7869cb595a74}\label{lista_8c_adee0fa189a9726281d3a7869cb595a74} 
+\index{lista.c@{lista.c}!contar\_posiciones@{contar\_posiciones}}
+\index{contar\_posiciones@{contar\_posiciones}!lista.c@{lista.c}}
+\doxysubsubsection{\texorpdfstring{contar\_posiciones()}{contar\_posiciones()}}
+{\footnotesize\ttfamily int contar\+\_\+posiciones (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structListaInt}{Lista\+Int}} \texorpdfstring{$\ast$}{*}}]{cabeza }\end{DoxyParamCaption})}
+
+
+
+Cuenta la cantidad de nodos en la lista. 
+
+Cuenta cuántas posiciones hay en la lista.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cabeza} & Puntero al primer nodo de la lista. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Numero total de nodos. 
+\end{DoxyReturn}
+\Hypertarget{lista_8c_ae95355591ee824199ef8f2e8163546d2}\label{lista_8c_ae95355591ee824199ef8f2e8163546d2} 
+\index{lista.c@{lista.c}!crear\_nodo\_lista@{crear\_nodo\_lista}}
+\index{crear\_nodo\_lista@{crear\_nodo\_lista}!lista.c@{lista.c}}
+\doxysubsubsection{\texorpdfstring{crear\_nodo\_lista()}{crear\_nodo\_lista()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structListaInt}{Lista\+Int}} \texorpdfstring{$\ast$}{*} crear\+\_\+nodo\+\_\+lista (\begin{DoxyParamCaption}\item[{int}]{posicion }\end{DoxyParamCaption})}
+
+
+
+Crea un nuevo nodo de lista que almacena una posicion. 
+
+Crea un nodo que almacena una posición.
+
+
+\begin{DoxyParams}{Parameters}
+{\em posicion} & Valor entero a guardar en el nodo. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Puntero al nuevo nodo creado, o NULL si falla la asignacion de memoria. 
+\end{DoxyReturn}
+\Hypertarget{lista_8c_a0fcbd2cf5f59bce8199bb27bf50a06f4}\label{lista_8c_a0fcbd2cf5f59bce8199bb27bf50a06f4} 
+\index{lista.c@{lista.c}!imprimir\_posiciones@{imprimir\_posiciones}}
+\index{imprimir\_posiciones@{imprimir\_posiciones}!lista.c@{lista.c}}
+\doxysubsubsection{\texorpdfstring{imprimir\_posiciones()}{imprimir\_posiciones()}}
+{\footnotesize\ttfamily void imprimir\+\_\+posiciones (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structListaInt}{Lista\+Int}} \texorpdfstring{$\ast$}{*}}]{cabeza }\end{DoxyParamCaption})}
+
+
+
+Imprime todas las posiciones almacenadas en la lista. 
+
+Imprime todas las posiciones almacenadas.
+
+No imprime saltos de linea; solo valores separados por espacios.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cabeza} & Puntero al primer nodo de la lista. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{lista_8c_a02144f2f4b7488feec4246e7517bf160}\label{lista_8c_a02144f2f4b7488feec4246e7517bf160} 
+\index{lista.c@{lista.c}!insertar\_posicion@{insertar\_posicion}}
+\index{insertar\_posicion@{insertar\_posicion}!lista.c@{lista.c}}
+\doxysubsubsection{\texorpdfstring{insertar\_posicion()}{insertar\_posicion()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structListaInt}{Lista\+Int}} \texorpdfstring{$\ast$}{*} insertar\+\_\+posicion (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structListaInt}{Lista\+Int}} \texorpdfstring{$\ast$}{*}}]{cabeza,  }\item[{int}]{posicion }\end{DoxyParamCaption})}
+
+
+
+Inserta una posicion al final de la lista enlazada. 
+
+Inserta una posición al final de la lista.
+
+Si la lista esta vacia, el nuevo nodo pasa a ser la cabeza.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cabeza} & Puntero al primer nodo de la lista. \\
+\hline
+{\em posicion} & Valor entero a insertar. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Puntero a la cabeza de la lista (puede cambiar si antes era NULL). 
+\end{DoxyReturn}
+\Hypertarget{lista_8c_a88708fc1ff1cf31397e5f0f9f48655e1}\label{lista_8c_a88708fc1ff1cf31397e5f0f9f48655e1} 
+\index{lista.c@{lista.c}!liberar\_lista@{liberar\_lista}}
+\index{liberar\_lista@{liberar\_lista}!lista.c@{lista.c}}
+\doxysubsubsection{\texorpdfstring{liberar\_lista()}{liberar\_lista()}}
+{\footnotesize\ttfamily void liberar\+\_\+lista (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structListaInt}{Lista\+Int}} \texorpdfstring{$\ast$}{*}}]{cabeza }\end{DoxyParamCaption})}
+
+
+
+Libera toda la memoria asociada a la lista enlazada. 
+
+Libera toda la memoria usada por la lista.
+
+
+\begin{DoxyParams}{Parameters}
+{\em cabeza} & Puntero al primer nodo de la lista a liberar. \\
+\hline
+\end{DoxyParams}

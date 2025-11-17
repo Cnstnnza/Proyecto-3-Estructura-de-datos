@@ -1,0 +1,52 @@
+\doxysection{trie.\+h}
+\hypertarget{trie_8h_source}{}\label{trie_8h_source}\mbox{\hyperlink{trie_8h}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ TRIE\_H}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ TRIE\_H}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{lista_8h}{lista.h}}"{}}}
+\DoxyCodeLine{00005\ }
+\DoxyCodeLine{00006\ \textcolor{preprocessor}{\#define\ MORADO\ "{}\(\backslash\)033[1;35m"{}}}
+\DoxyCodeLine{00007\ \textcolor{preprocessor}{\#define\ RESET\ "{}\(\backslash\)033[0m"{}}}
+\DoxyCodeLine{00008\ \textcolor{preprocessor}{\#define\ AMARILLO\ "{}\(\backslash\)033[33m"{}}}
+\DoxyCodeLine{00009\ \textcolor{preprocessor}{\#define\ ROJO\ "{}\(\backslash\)033[1;31m"{}}}
+\DoxyCodeLine{00010\ \textcolor{preprocessor}{\#define\ VERDE\ "{}\(\backslash\)033[1;32m"{}}}
+\DoxyCodeLine{00011\ \textcolor{preprocessor}{\#define\ VERDE\_CLARO\ "{}\(\backslash\)033[1;32m"{}}}
+\DoxyCodeLine{00012\ \textcolor{preprocessor}{\#define\ AZUL\ "{}\(\backslash\)033[1;34m"{}}}
+\DoxyCodeLine{00013\ }
+\DoxyCodeLine{00021\ \textcolor{keyword}{typedef}\ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structNodo}{Nodo}}\ \{}
+\DoxyCodeLine{00022\ \ \ \ \ \textcolor{keyword}{struct\ }\mbox{\hyperlink{structNodo}{Nodo}}*\ \mbox{\hyperlink{structNodo_a0a594bf30461ba04478fece17351ee2f}{hijos}}[4];\ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00023\ \ \ \ \ \mbox{\hyperlink{structListaInt}{ListaInt}}*\ \mbox{\hyperlink{structNodo_a5809345fcd4d553acccfbd2a0e212bf9}{lista\_posiciones}};\ \ \ }
+\DoxyCodeLine{00024\ \}\ \mbox{\hyperlink{structNodo}{Nodo}};}
+\DoxyCodeLine{00025\ }
+\DoxyCodeLine{00031\ \textcolor{keyword}{extern}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{trie_8h_a95358bdeddd751f06c16868aa90e8437}{GEN\_SIZE}};}
+\DoxyCodeLine{00032\ }
+\DoxyCodeLine{00038\ \textcolor{keyword}{extern}\ \mbox{\hyperlink{structNodo}{Nodo}}*\ \mbox{\hyperlink{trie_8h_abaa122e91880745134fc211f49dd7c2a}{TRIE\_ROOT}};}
+\DoxyCodeLine{00039\ }
+\DoxyCodeLine{00044\ \mbox{\hyperlink{structNodo}{Nodo}}*\ \mbox{\hyperlink{trie_8h_ac3dc55211e0540b28586d610340bfcdf}{crear\_nodo}}(\textcolor{keywordtype}{void});}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00051\ \mbox{\hyperlink{structNodo}{Nodo}}*\ \mbox{\hyperlink{trie_8h_ad9127a579419963ae39bf4fa28a71ca0}{bio\_start}}(\textcolor{keywordtype}{int}\ m);}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00056\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{trie_8h_a97ee70a8770dc30d06c744b24eb2fcfc}{help}}();}
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00063\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{trie_8h_a5e4d779faae5007c8f5de208897981e3}{get\_base\_index}}(\textcolor{keywordtype}{char}\ base);}
+\DoxyCodeLine{00064\ }
+\DoxyCodeLine{00071\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{trie_8h_aeed4a73d6fd09bfffd99bd1f0bbc3dd1}{insertar\_gen\_en\_trie}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ gen,\ \textcolor{keywordtype}{int}\ posicion);}
+\DoxyCodeLine{00072\ }
+\DoxyCodeLine{00078\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{trie_8h_af2478c202dbf50dae47227a4db881340}{bio\_read}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ nombre\_archivo);}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00085\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{trie_8h_adb788dfcf94c42d1961bd9d626e461b7}{bio\_search}}(\textcolor{keyword}{const}\ \textcolor{keywordtype}{char}*\ gen\_G);}
+\DoxyCodeLine{00086\ }
+\DoxyCodeLine{00090\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{trie_8h_a4f5efc31c725e01853e18ecee3f9489f}{bio\_max}}();}
+\DoxyCodeLine{00091\ }
+\DoxyCodeLine{00095\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{trie_8h_a6f9df17a38621586c1c6d7c33f2d828e}{bio\_min}}();}
+\DoxyCodeLine{00096\ }
+\DoxyCodeLine{00100\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{trie_8h_a882805202ff34e8c6ab4802b5848e78b}{bio\_all}}();}
+\DoxyCodeLine{00101\ }
+\DoxyCodeLine{00106\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{trie_8h_a0b62b388fe1b88ad067344fa1c7b4378}{liberar\_arbol}}(\mbox{\hyperlink{structNodo}{Nodo}}*\ nodo);}
+\DoxyCodeLine{00107\ }
+\DoxyCodeLine{00111\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{trie_8h_a1f082216728a21c7ab45a787a4fa5e32}{bio\_exit}}();}
+\DoxyCodeLine{00112\ }
+\DoxyCodeLine{00113\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

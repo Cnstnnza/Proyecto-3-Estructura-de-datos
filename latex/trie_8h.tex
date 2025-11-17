@@ -1,0 +1,409 @@
+\doxysection{trie.\+h File Reference}
+\hypertarget{trie_8h}{}\label{trie_8h}\index{trie.h@{trie.h}}
+{\ttfamily \#include "{}lista.\+h"{}}\newline
+Include dependency graph for trie.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=127pt]{trie_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=190pt]{trie_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structNodo}{Nodo}}
+\begin{DoxyCompactList}\small\item\em \doxylink{structNodo}{Nodo} del trie 4-\/ario para almacenar genes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{trie_8h_a0db3023c032af682156c9e8f7dc143a7}{MORADO}}~"{}\textbackslash{}033\mbox{[}1;35m"{}
+\item 
+\#define \mbox{\hyperlink{trie_8h_ab702106cf3b3e96750b6845ded4e0299}{RESET}}~"{}\textbackslash{}033\mbox{[}0m"{}
+\item 
+\#define \mbox{\hyperlink{trie_8h_a706dd8cf719e6640421418eea1b08c21}{AMARILLO}}~"{}\textbackslash{}033\mbox{[}33m"{}
+\item 
+\#define \mbox{\hyperlink{trie_8h_a66761d5509ed1ddc7e5586e4d28247a1}{ROJO}}~"{}\textbackslash{}033\mbox{[}1;31m"{}
+\item 
+\#define \mbox{\hyperlink{trie_8h_a4bb7219220248476df702f5d4fbbb3ab}{VERDE}}~"{}\textbackslash{}033\mbox{[}1;32m"{}
+\item 
+\#define \mbox{\hyperlink{trie_8h_aca087b91d013cbec21e3b58677fbbf8d}{VERDE\+\_\+\+CLARO}}~"{}\textbackslash{}033\mbox{[}1;32m"{}
+\item 
+\#define \mbox{\hyperlink{trie_8h_a417a0e2cb13684627c838b16cc69651a}{AZUL}}~"{}\textbackslash{}033\mbox{[}1;34m"{}
+\end{DoxyCompactItemize}
+\doxysubsubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \mbox{\hyperlink{structNodo}{Nodo}} \mbox{\hyperlink{trie_8h_ab27a17935caedd91258058c352971251}{Nodo}}
+\begin{DoxyCompactList}\small\item\em \doxylink{structNodo}{Nodo} del trie 4-\/ario para almacenar genes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{structNodo}{Nodo}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{trie_8h_ac3dc55211e0540b28586d610340bfcdf}{crear\+\_\+nodo}} (void)
+\begin{DoxyCompactList}\small\item\em Crea y retorna un nodo del trie. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structNodo}{Nodo}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{trie_8h_ad9127a579419963ae39bf4fa28a71ca0}{bio\+\_\+start}} (int m)
+\begin{DoxyCompactList}\small\item\em Inicializa el trie creando un arbol 4-\/ario de profundidad m. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{trie_8h_a97ee70a8770dc30d06c744b24eb2fcfc}{help}} ()
+\begin{DoxyCompactList}\small\item\em Imprime los comandos disponibles del programa. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{trie_8h_a5e4d779faae5007c8f5de208897981e3}{get\+\_\+base\+\_\+index}} (char base)
+\begin{DoxyCompactList}\small\item\em Convierte una base ADN (A,C,G,T) en su indice numerico. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{trie_8h_aeed4a73d6fd09bfffd99bd1f0bbc3dd1}{insertar\+\_\+gen\+\_\+en\+\_\+trie}} (const char \texorpdfstring{$\ast$}{*}gen, int posicion)
+\begin{DoxyCompactList}\small\item\em Inserta un gen en el trie y registra la posicion donde aparece. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{trie_8h_af2478c202dbf50dae47227a4db881340}{bio\+\_\+read}} (const char \texorpdfstring{$\ast$}{*}nombre\+\_\+archivo)
+\begin{DoxyCompactList}\small\item\em Lee un archivo de ADN completo y carga todos los genes en el trie. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{trie_8h_adb788dfcf94c42d1961bd9d626e461b7}{bio\+\_\+search}} (const char \texorpdfstring{$\ast$}{*}gen\+\_\+G)
+\begin{DoxyCompactList}\small\item\em Busca un gen dentro del trie. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{trie_8h_a4f5efc31c725e01853e18ecee3f9489f}{bio\+\_\+max}} ()
+\begin{DoxyCompactList}\small\item\em Muestra el gen con mayor frecuencia dentro del trie. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{trie_8h_a6f9df17a38621586c1c6d7c33f2d828e}{bio\+\_\+min}} ()
+\begin{DoxyCompactList}\small\item\em Muestra el gen con menor frecuencia dentro del trie. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{trie_8h_a882805202ff34e8c6ab4802b5848e78b}{bio\+\_\+all}} ()
+\begin{DoxyCompactList}\small\item\em Imprime todos los genes con frecuencia mayor a 0. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{trie_8h_a0b62b388fe1b88ad067344fa1c7b4378}{liberar\+\_\+arbol}} (\mbox{\hyperlink{structNodo}{Nodo}} \texorpdfstring{$\ast$}{*}nodo)
+\begin{DoxyCompactList}\small\item\em Libera recursivamente todos los nodos del trie. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{trie_8h_a1f082216728a21c7ab45a787a4fa5e32}{bio\+\_\+exit}} ()
+\begin{DoxyCompactList}\small\item\em Libera toda la memoria del programa y reinicia el estado. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{trie_8h_a95358bdeddd751f06c16868aa90e8437}{GEN\+\_\+\+SIZE}}
+\begin{DoxyCompactList}\small\item\em Largo del gen utilizado por el trie. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structNodo}{Nodo}} \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{trie_8h_abaa122e91880745134fc211f49dd7c2a}{TRIE\+\_\+\+ROOT}}
+\begin{DoxyCompactList}\small\item\em Puntero a la raiz del trie principal. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\Hypertarget{trie_8h_a706dd8cf719e6640421418eea1b08c21}\label{trie_8h_a706dd8cf719e6640421418eea1b08c21} 
+\index{trie.h@{trie.h}!AMARILLO@{AMARILLO}}
+\index{AMARILLO@{AMARILLO}!trie.h@{trie.h}}
+\doxysubsubsection{\texorpdfstring{AMARILLO}{AMARILLO}}
+{\footnotesize\ttfamily \#define AMARILLO~"{}\textbackslash{}033\mbox{[}33m"{}}
+
+\Hypertarget{trie_8h_a417a0e2cb13684627c838b16cc69651a}\label{trie_8h_a417a0e2cb13684627c838b16cc69651a} 
+\index{trie.h@{trie.h}!AZUL@{AZUL}}
+\index{AZUL@{AZUL}!trie.h@{trie.h}}
+\doxysubsubsection{\texorpdfstring{AZUL}{AZUL}}
+{\footnotesize\ttfamily \#define AZUL~"{}\textbackslash{}033\mbox{[}1;34m"{}}
+
+\Hypertarget{trie_8h_a0db3023c032af682156c9e8f7dc143a7}\label{trie_8h_a0db3023c032af682156c9e8f7dc143a7} 
+\index{trie.h@{trie.h}!MORADO@{MORADO}}
+\index{MORADO@{MORADO}!trie.h@{trie.h}}
+\doxysubsubsection{\texorpdfstring{MORADO}{MORADO}}
+{\footnotesize\ttfamily \#define MORADO~"{}\textbackslash{}033\mbox{[}1;35m"{}}
+
+\Hypertarget{trie_8h_ab702106cf3b3e96750b6845ded4e0299}\label{trie_8h_ab702106cf3b3e96750b6845ded4e0299} 
+\index{trie.h@{trie.h}!RESET@{RESET}}
+\index{RESET@{RESET}!trie.h@{trie.h}}
+\doxysubsubsection{\texorpdfstring{RESET}{RESET}}
+{\footnotesize\ttfamily \#define RESET~"{}\textbackslash{}033\mbox{[}0m"{}}
+
+\Hypertarget{trie_8h_a66761d5509ed1ddc7e5586e4d28247a1}\label{trie_8h_a66761d5509ed1ddc7e5586e4d28247a1} 
+\index{trie.h@{trie.h}!ROJO@{ROJO}}
+\index{ROJO@{ROJO}!trie.h@{trie.h}}
+\doxysubsubsection{\texorpdfstring{ROJO}{ROJO}}
+{\footnotesize\ttfamily \#define ROJO~"{}\textbackslash{}033\mbox{[}1;31m"{}}
+
+\Hypertarget{trie_8h_a4bb7219220248476df702f5d4fbbb3ab}\label{trie_8h_a4bb7219220248476df702f5d4fbbb3ab} 
+\index{trie.h@{trie.h}!VERDE@{VERDE}}
+\index{VERDE@{VERDE}!trie.h@{trie.h}}
+\doxysubsubsection{\texorpdfstring{VERDE}{VERDE}}
+{\footnotesize\ttfamily \#define VERDE~"{}\textbackslash{}033\mbox{[}1;32m"{}}
+
+\Hypertarget{trie_8h_aca087b91d013cbec21e3b58677fbbf8d}\label{trie_8h_aca087b91d013cbec21e3b58677fbbf8d} 
+\index{trie.h@{trie.h}!VERDE\_CLARO@{VERDE\_CLARO}}
+\index{VERDE\_CLARO@{VERDE\_CLARO}!trie.h@{trie.h}}
+\doxysubsubsection{\texorpdfstring{VERDE\_CLARO}{VERDE\_CLARO}}
+{\footnotesize\ttfamily \#define VERDE\+\_\+\+CLARO~"{}\textbackslash{}033\mbox{[}1;32m"{}}
+
+
+
+\doxysubsection{Typedef Documentation}
+\Hypertarget{trie_8h_ab27a17935caedd91258058c352971251}\label{trie_8h_ab27a17935caedd91258058c352971251} 
+\index{trie.h@{trie.h}!Nodo@{Nodo}}
+\index{Nodo@{Nodo}!trie.h@{trie.h}}
+\doxysubsubsection{\texorpdfstring{Nodo}{Nodo}}
+{\footnotesize\ttfamily typedef struct \mbox{\hyperlink{structNodo}{Nodo}} \mbox{\hyperlink{structNodo}{Nodo}}}
+
+
+
+\doxylink{structNodo}{Nodo} del trie 4-\/ario para almacenar genes. 
+
+Cada nodo representa una base del gen (A, C, G, T). En los nodos hoja se guarda una lista con las posiciones donde aparece el gen correspondiente. 
+
+\doxysubsection{Function Documentation}
+\Hypertarget{trie_8h_a882805202ff34e8c6ab4802b5848e78b}\label{trie_8h_a882805202ff34e8c6ab4802b5848e78b} 
+\index{trie.h@{trie.h}!bio\_all@{bio\_all}}
+\index{bio\_all@{bio\_all}!trie.h@{trie.h}}
+\doxysubsubsection{\texorpdfstring{bio\_all()}{bio\_all()}}
+{\footnotesize\ttfamily void bio\+\_\+all (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Imprime todos los genes con frecuencia mayor a 0. 
+
+Imprime todos los genes con frecuencia mayor a 0. \Hypertarget{trie_8h_a1f082216728a21c7ab45a787a4fa5e32}\label{trie_8h_a1f082216728a21c7ab45a787a4fa5e32} 
+\index{trie.h@{trie.h}!bio\_exit@{bio\_exit}}
+\index{bio\_exit@{bio\_exit}!trie.h@{trie.h}}
+\doxysubsubsection{\texorpdfstring{bio\_exit()}{bio\_exit()}}
+{\footnotesize\ttfamily void bio\+\_\+exit (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Libera toda la memoria del programa y reinicia el estado. 
+
+Libera toda la memoria del programa y reinicia el estado. \Hypertarget{trie_8h_a4f5efc31c725e01853e18ecee3f9489f}\label{trie_8h_a4f5efc31c725e01853e18ecee3f9489f} 
+\index{trie.h@{trie.h}!bio\_max@{bio\_max}}
+\index{bio\_max@{bio\_max}!trie.h@{trie.h}}
+\doxysubsubsection{\texorpdfstring{bio\_max()}{bio\_max()}}
+{\footnotesize\ttfamily void bio\+\_\+max (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Muestra el gen con mayor frecuencia dentro del trie. 
+
+Muestra el gen con mayor frecuencia dentro del trie. \Hypertarget{trie_8h_a6f9df17a38621586c1c6d7c33f2d828e}\label{trie_8h_a6f9df17a38621586c1c6d7c33f2d828e} 
+\index{trie.h@{trie.h}!bio\_min@{bio\_min}}
+\index{bio\_min@{bio\_min}!trie.h@{trie.h}}
+\doxysubsubsection{\texorpdfstring{bio\_min()}{bio\_min()}}
+{\footnotesize\ttfamily void bio\+\_\+min (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Muestra el gen con menor frecuencia dentro del trie. 
+
+Muestra el gen con menor frecuencia dentro del trie. \Hypertarget{trie_8h_af2478c202dbf50dae47227a4db881340}\label{trie_8h_af2478c202dbf50dae47227a4db881340} 
+\index{trie.h@{trie.h}!bio\_read@{bio\_read}}
+\index{bio\_read@{bio\_read}!trie.h@{trie.h}}
+\doxysubsubsection{\texorpdfstring{bio\_read()}{bio\_read()}}
+{\footnotesize\ttfamily int bio\+\_\+read (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{nombre\+\_\+archivo }\end{DoxyParamCaption})}
+
+
+
+Lee un archivo de ADN completo y carga todos los genes en el trie. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nombre\+\_\+archivo} & Nombre del archivo a leer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 si se carga correctamente, -\/1 en caso de error.
+\end{DoxyReturn}
+Lee un archivo de ADN completo y carga todos los genes en el trie.
+
+
+\begin{DoxyParams}{Parameters}
+{\em nombre\+\_\+archivo} & Nombre del archivo a leer. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 si se leyo correctamente, -\/1 en caso de error. 
+\end{DoxyReturn}
+\Hypertarget{trie_8h_adb788dfcf94c42d1961bd9d626e461b7}\label{trie_8h_adb788dfcf94c42d1961bd9d626e461b7} 
+\index{trie.h@{trie.h}!bio\_search@{bio\_search}}
+\index{bio\_search@{bio\_search}!trie.h@{trie.h}}
+\doxysubsubsection{\texorpdfstring{bio\_search()}{bio\_search()}}
+{\footnotesize\ttfamily int bio\+\_\+search (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{gen\+\_\+G }\end{DoxyParamCaption})}
+
+
+
+Busca un gen dentro del trie. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gen\+\_\+G} & Secuencia a buscar. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Frecuencia del gen o -\/1 si no se encuentra o es invalido.
+\end{DoxyReturn}
+Busca un gen dentro del trie.
+
+
+\begin{DoxyParams}{Parameters}
+{\em gen\+\_\+G} & Gen a buscar. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Frecuencia encontrada o -\/1 si no existe. 
+\end{DoxyReturn}
+\Hypertarget{trie_8h_ad9127a579419963ae39bf4fa28a71ca0}\label{trie_8h_ad9127a579419963ae39bf4fa28a71ca0} 
+\index{trie.h@{trie.h}!bio\_start@{bio\_start}}
+\index{bio\_start@{bio\_start}!trie.h@{trie.h}}
+\doxysubsubsection{\texorpdfstring{bio\_start()}{bio\_start()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structNodo}{Nodo}} \texorpdfstring{$\ast$}{*} bio\+\_\+start (\begin{DoxyParamCaption}\item[{int}]{m }\end{DoxyParamCaption})}
+
+
+
+Inicializa el trie creando un arbol 4-\/ario de profundidad m. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & Largo del gen. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Puntero a la raiz del trie.
+\end{DoxyReturn}
+Inicializa el trie creando un arbol 4-\/ario de profundidad m.
+
+Reinicia cualquier estructura previa del programa.
+
+
+\begin{DoxyParams}{Parameters}
+{\em m} & Largo de los genes. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Raiz del trie creado. 
+\end{DoxyReturn}
+\Hypertarget{trie_8h_ac3dc55211e0540b28586d610340bfcdf}\label{trie_8h_ac3dc55211e0540b28586d610340bfcdf} 
+\index{trie.h@{trie.h}!crear\_nodo@{crear\_nodo}}
+\index{crear\_nodo@{crear\_nodo}!trie.h@{trie.h}}
+\doxysubsubsection{\texorpdfstring{crear\_nodo()}{crear\_nodo()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structNodo}{Nodo}} \texorpdfstring{$\ast$}{*} crear\+\_\+nodo (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Crea y retorna un nodo del trie. 
+
+\begin{DoxyReturn}{Returns}
+Puntero a un nodo inicializado o NULL si falla.
+\end{DoxyReturn}
+Crea y retorna un nodo del trie.
+
+Reserva memoria para un nodo e inicializa todos los campos a cero.
+
+\begin{DoxyReturn}{Returns}
+Puntero al nodo creado o NULL si la asignacion falla. 
+\end{DoxyReturn}
+\Hypertarget{trie_8h_a5e4d779faae5007c8f5de208897981e3}\label{trie_8h_a5e4d779faae5007c8f5de208897981e3} 
+\index{trie.h@{trie.h}!get\_base\_index@{get\_base\_index}}
+\index{get\_base\_index@{get\_base\_index}!trie.h@{trie.h}}
+\doxysubsubsection{\texorpdfstring{get\_base\_index()}{get\_base\_index()}}
+{\footnotesize\ttfamily int get\+\_\+base\+\_\+index (\begin{DoxyParamCaption}\item[{char}]{base }\end{DoxyParamCaption})}
+
+
+
+Convierte una base ADN (A,C,G,T) en su indice numerico. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em base} & Caracter \textquotesingle{}A\textquotesingle{}, \textquotesingle{}C\textquotesingle{}, \textquotesingle{}G\textquotesingle{} o \textquotesingle{}T\textquotesingle{}. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Indice entre 0 y 3, o -\/1 si el caracter es invalido.
+\end{DoxyReturn}
+Convierte una base ADN (A,C,G,T) en su indice numerico.
+
+Convierte los caracteres \textquotesingle{}A\textquotesingle{}, \textquotesingle{}C\textquotesingle{}, \textquotesingle{}G\textquotesingle{}, \textquotesingle{}T\textquotesingle{} en indices 0-\/3.
+
+
+\begin{DoxyParams}{Parameters}
+{\em base} & Caracter de la base. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Indice 0-\/3 o -\/1 si es invalido. 
+\end{DoxyReturn}
+\Hypertarget{trie_8h_a97ee70a8770dc30d06c744b24eb2fcfc}\label{trie_8h_a97ee70a8770dc30d06c744b24eb2fcfc} 
+\index{trie.h@{trie.h}!help@{help}}
+\index{help@{help}!trie.h@{trie.h}}
+\doxysubsubsection{\texorpdfstring{help()}{help()}}
+{\footnotesize\ttfamily void help (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Imprime los comandos disponibles del programa. 
+
+Imprime los comandos disponibles del programa. \Hypertarget{trie_8h_aeed4a73d6fd09bfffd99bd1f0bbc3dd1}\label{trie_8h_aeed4a73d6fd09bfffd99bd1f0bbc3dd1} 
+\index{trie.h@{trie.h}!insertar\_gen\_en\_trie@{insertar\_gen\_en\_trie}}
+\index{insertar\_gen\_en\_trie@{insertar\_gen\_en\_trie}!trie.h@{trie.h}}
+\doxysubsubsection{\texorpdfstring{insertar\_gen\_en\_trie()}{insertar\_gen\_en\_trie()}}
+{\footnotesize\ttfamily int insertar\+\_\+gen\+\_\+en\+\_\+trie (\begin{DoxyParamCaption}\item[{const char \texorpdfstring{$\ast$}{*}}]{gen,  }\item[{int}]{posicion }\end{DoxyParamCaption})}
+
+
+
+Inserta un gen en el trie y registra la posicion donde aparece. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em gen} & Secuencia de largo GEN\+\_\+\+SIZE. \\
+\hline
+{\em posicion} & Posicion inicial dentro de la secuencia S. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 si se inserta correctamente, -\/1 si ocurre un error.
+\end{DoxyReturn}
+Inserta un gen en el trie y registra la posicion donde aparece.
+
+
+\begin{DoxyParams}{Parameters}
+{\em gen} & Cadena del gen a insertar. \\
+\hline
+{\em posicion} & Posicion en la secuencia original. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+0 si se inserto correctamente, -\/1 si hubo error. 
+\end{DoxyReturn}
+\Hypertarget{trie_8h_a0b62b388fe1b88ad067344fa1c7b4378}\label{trie_8h_a0b62b388fe1b88ad067344fa1c7b4378} 
+\index{trie.h@{trie.h}!liberar\_arbol@{liberar\_arbol}}
+\index{liberar\_arbol@{liberar\_arbol}!trie.h@{trie.h}}
+\doxysubsubsection{\texorpdfstring{liberar\_arbol()}{liberar\_arbol()}}
+{\footnotesize\ttfamily void liberar\+\_\+arbol (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structNodo}{Nodo}} \texorpdfstring{$\ast$}{*}}]{nodo }\end{DoxyParamCaption})}
+
+
+
+Libera recursivamente todos los nodos del trie. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em nodo} & \doxylink{structNodo}{Nodo} raiz del subarbol a liberar.\\
+\hline
+\end{DoxyParams}
+Libera recursivamente todos los nodos del trie.
+
+
+\begin{DoxyParams}{Parameters}
+{\em nodo} & \doxylink{structNodo}{Nodo} actual. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Variable Documentation}
+\Hypertarget{trie_8h_a95358bdeddd751f06c16868aa90e8437}\label{trie_8h_a95358bdeddd751f06c16868aa90e8437} 
+\index{trie.h@{trie.h}!GEN\_SIZE@{GEN\_SIZE}}
+\index{GEN\_SIZE@{GEN\_SIZE}!trie.h@{trie.h}}
+\doxysubsubsection{\texorpdfstring{GEN\_SIZE}{GEN\_SIZE}}
+{\footnotesize\ttfamily int GEN\+\_\+\+SIZE\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Largo del gen utilizado por el trie. 
+
+Debe ser definido con \doxylink{trie_8h_ad9127a579419963ae39bf4fa28a71ca0}{bio\+\_\+start()}.
+
+Largo del gen utilizado por el trie. \Hypertarget{trie_8h_abaa122e91880745134fc211f49dd7c2a}\label{trie_8h_abaa122e91880745134fc211f49dd7c2a} 
+\index{trie.h@{trie.h}!TRIE\_ROOT@{TRIE\_ROOT}}
+\index{TRIE\_ROOT@{TRIE\_ROOT}!trie.h@{trie.h}}
+\doxysubsubsection{\texorpdfstring{TRIE\_ROOT}{TRIE\_ROOT}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structNodo}{Nodo}}\texorpdfstring{$\ast$}{*} TRIE\+\_\+\+ROOT\hspace{0.3cm}{\ttfamily [extern]}}
+
+
+
+Puntero a la raiz del trie principal. 
+
+Se asigna en \doxylink{trie_8h_ad9127a579419963ae39bf4fa28a71ca0}{bio\+\_\+start()}.
+
+Puntero a la raiz del trie principal. 
